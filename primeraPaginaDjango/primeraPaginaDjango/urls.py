@@ -27,4 +27,5 @@ urlpatterns = [
     path('mostrar/<str:valor_datos>', views.capturar_dato),
     path('mostrar_numero/<int:valor_numerico>', views.capturar_numero),
     path('operaciones/<int:numero1>/<int:numero2>', views.operar_numeros),
+    path('operacion_flotante/<str:valor_float>', views.numeros_coma_flotante),
 ]

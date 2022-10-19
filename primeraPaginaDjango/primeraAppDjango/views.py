@@ -42,12 +42,13 @@ def operar_numeros(request,numero1,numero2):
         dividir="División por 0 indeterminada"    
     else:
         dividir=numero1/numero2
+    # OJO CON LOS STR CUANDO OPERAMOS, RECORDAR USAR +STR() para concatenar o usar en su defecto formateo por %s %()
     # resultados_operaciones="Resultado suma: ",sumar," Resultado resta: ",restar," Resultado multiplicación: ",multiplicar," Resultado división: ",dividir
     documento='''
     <!DOCTYPE html>
     <html>
         <body>
-            <h2>Operaciónes con numeros (mediante la url)</h2>
+            <h2>Operaciónes con numeros (mediante la URI)</h2>
             <h3>Suma, resta, multiplicación y división</h3>
             <ol>
               <li>EL resultado de la suma es: %s</li>
@@ -59,3 +60,24 @@ def operar_numeros(request,numero1,numero2):
     </html>
     '''%(sumar,restar,multiplicar,dividir)
     return HttpResponse(documento)
+
+#  Func que permita ingresar un numero decimal y sumarle 1
+
+def numeros_coma_flotante(request,valor_float):
+    valor_ingresado_a_float=float(valor_float)
+    n1=valor_ingresado_a_float+1.0
+    n1=str(n1)
+    respuesta="El resultado es: "+str(n1)
+    return HttpResponse(respuesta)
+
+#  Crear fun que permita ingresar nombre y 3 notas de un alumno 
+#  Debe calcular e imprimir los datos ingresados
+#  el promedio obtenido 
+#  y la situación final del alumno 
+#  si el promedio es mayor o igual a 4 aprueba o reprueba en caso contrario 
+#  
+
+#  Crear una func que permita ingresar dos numeros enteros
+#  y calcule e imprima la tabla de multiplicar
+#  del primer numero ingresado hasta el segundo numero ingresado
+#  
