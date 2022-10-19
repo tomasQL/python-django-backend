@@ -14,4 +14,7 @@ def mostrar_datetime(request):
     s = "<b>La fecha actual es: </b>"+str(dt)
     return HttpResponse(s)
 
-
+def capturar_dato(request,valor_datos):
+    x = "usted digitó %s"%valor_datos
+    documento = '''<html> '''
+    return HttpResponse(x)

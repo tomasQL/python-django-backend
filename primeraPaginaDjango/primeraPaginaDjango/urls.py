@@ -24,4 +24,5 @@ urlpatterns = [
     #  path('fecha_actual/', views.mostrar_datetime), migrada a urls.py primeraAppDjango
     path('mi_nombre/', viewsMiNombre.mi_nombre),
     path('', include('primeraAppDjango.urls')),
+    path('mostrar/<str:valor_datos>', views.capturar_dato),
 ]
