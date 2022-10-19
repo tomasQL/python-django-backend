@@ -18,3 +18,7 @@ def capturar_dato(request,valor_datos):
     x = "usted digitó %s"%valor_datos
     documento = '''<html> '''
     return HttpResponse(x)
+
+def capturar_numero(request,valor_numerico):
+    valor_numerico+=1
+    return HttpResponse(valor_numerico)

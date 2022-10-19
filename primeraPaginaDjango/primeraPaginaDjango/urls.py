@@ -25,4 +25,5 @@ urlpatterns = [
     path('mi_nombre/', viewsMiNombre.mi_nombre),
     path('', include('primeraAppDjango.urls')),
     path('mostrar/<str:valor_datos>', views.capturar_dato),
+    path('mostrar_numero/<int:valor_numerico>', views.capturar_numero),
 ]
