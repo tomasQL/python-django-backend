@@ -1,3 +1,4 @@
+from __future__ import division
 from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
@@ -16,9 +17,26 @@ def mostrar_datetime(request):
 
 def capturar_dato(request,valor_datos):
     x = "usted digitó %s"%valor_datos
-    documento = '''<html> '''
-    return HttpResponse(x)
+    #  Esta no es la forma, normalmente usaremos templates, pero tamos practicando
+    documento = '''
+    <html>
+        <body>
+            <h1>El valor ingresado es %s </h1>
+        </body>
+    </html>
+    '''
+    return HttpResponse(documento)
 
 def capturar_numero(request,valor_numerico):
     valor_numerico+=1
     return HttpResponse(valor_numerico)
+
+# crear func que permita ingresar 2 numeros, calcular suma resta mult div
+
+def operar_numeros(request,numero1,numero2):
+    sumar=numero1+numero2
+    restar=numero1-numero2
+    multiplicar=numero1*numero2
+    dividir=numero1/numero2
+    resultados_operaciones="Resultado suma: ",sumar," Resultado resta: ",restar," Resultado multiplicación: ",multiplicar," Resultado división: ",dividir
+    return HttpResponse(resultados_operaciones)
