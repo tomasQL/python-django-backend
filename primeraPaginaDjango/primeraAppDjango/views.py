@@ -37,6 +37,25 @@ def operar_numeros(request,numero1,numero2):
     sumar=numero1+numero2
     restar=numero1-numero2
     multiplicar=numero1*numero2
-    dividir=numero1/numero2
-    resultados_operaciones="Resultado suma: ",sumar," Resultado resta: ",restar," Resultado multiplicación: ",multiplicar," Resultado división: ",dividir
-    return HttpResponse(resultados_operaciones)
+    #  Manejo DIVISIÓN POR 0 => Indeterminado
+    if numero2==0:
+        dividir="División por 0 indeterminada"    
+    else:
+        dividir=numero1/numero2
+    # resultados_operaciones="Resultado suma: ",sumar," Resultado resta: ",restar," Resultado multiplicación: ",multiplicar," Resultado división: ",dividir
+    documento='''
+    <!DOCTYPE html>
+    <html>
+        <body>
+            <h2>Operaciónes con numeros (mediante la url)</h2>
+            <h3>Suma, resta, multiplicación y división</h3>
+            <ol>
+              <li>EL resultado de la suma es: %s</li>
+              <li>EL resultado de la resta es: %s</li>
+              <li>EL resultado de la multiplicación es: %s</li>
+              <li>EL resultado de la división es: %s</li>
+            </ol> 
+        </body>
+    </html>
+    '''%(sumar,restar,multiplicar,dividir)
+    return HttpResponse(documento)
