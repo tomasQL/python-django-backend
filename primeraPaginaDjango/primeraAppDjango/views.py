@@ -1,12 +1,33 @@
-from __future__ import division
 from django.shortcuts import render
 from django.http import HttpResponse
 import datetime
-
+from django.template import Template, Context
 # Create your views here.
 
+
 def display(request):
-    return HttpResponse("<h1>Primer request de prueba, esto devuelve un h1</h1>")
+    nombre="Wombat"
+    #   paso 1
+    documento=open("/home/tomasg/workspace/python-django-backend/primeraPaginaDjango/primeraAppDjango/templates/primertemplate.html")
+    #   paso 2    
+    plantilla=Template(documento.read())
+    #   paso 3
+    documento.close()
+    #   paso 4
+    contexto=Context(
+        #   paso 5 usando variable nombre
+        #   al hacer esto estamos enviando información de la plantilla a la vista, la plantilla es el HTML
+        {"nombre_animal":nombre}
+    )
+    #   paso 5
+    enviar=plantilla.render(contexto)
+    return HttpResponse(enviar)
+
+
+
+#  cambios día 26-10-2022 - Comenzamos a usar templates
+#  def display(request):
+#      return HttpResponse("<h1>Primer request de prueba, esto devuelve un h1</h1>")
 
 def mostrar_datetime(request):
     dt = datetime.datetime.now()
