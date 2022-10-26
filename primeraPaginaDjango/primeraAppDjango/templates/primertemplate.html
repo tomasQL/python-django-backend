@@ -16,10 +16,11 @@
         </p>
         <br>
         <p>Datos por medio de la clase:<br>
-            Los datos: {{nombre}} y {{tipo}}
+            Los datos: {{nombre.upper}} y {{tipo}}
         </p>
         <br>
         <p style="color: blue">Lista de lenguajes:<br>
+            <!-- No recomendado, esto es solo una muestra-->
             {{lenguajes.0}}<br>
             {{lenguajes.1}}<br>
             {{lenguajes.2}}<br>
@@ -27,6 +28,21 @@
             {{lenguajes.4}}<br>
             {{lenguajes.5}}<br>
             {{lenguajes.6}}<br>
+        </p>
+        <p style="color: purple, font-size=12em">
+            Lista con ciclo for, solo ejemplo<br>
+            <!--Esto es de ejemplo también, normalmente este ciclo se coloca en la vista-->
+            {% for i in lenguajes %}
+                {{i}}<br>
+            {% endfor %}
+            <br>
+            <!--Lo mismo pero en lista ordenada
+                ojo a la posición de las etiquetas HTML
+            -->
+            <ol>{% for i in lenguajes %}
+                    <li>{{i}}</li>
+                {% endfor %}
+             </ol>
         </p>
     </body>
 </html>
