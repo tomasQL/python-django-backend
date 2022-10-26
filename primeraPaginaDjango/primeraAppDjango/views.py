@@ -4,9 +4,23 @@ import datetime
 from django.template import Template, Context
 # Create your views here.
 
+#   usando clases
+class Animal():
+    
+    def __init__(self, nombre_animal, tipo_animal):
+        self.nombre_animal=nombre_animal
+        self.tipo_animal=tipo_animal
+    pass
+
+
+
 
 def display(request):
+    #   paso 5.1
     nombre="Wombat"
+    origen="animal es endémico de Australia"
+    dt=datetime.datetime.now()
+    a=Animal("Wombat con clase","Marsupial con clase")
     #   paso 1
     documento=open("/home/tomasg/workspace/python-django-backend/primeraPaginaDjango/primeraAppDjango/templates/primertemplate.html")
     #   paso 2    
@@ -15,9 +29,18 @@ def display(request):
     documento.close()
     #   paso 4
     contexto=Context(
-        #   paso 5 usando variable nombre
+        #   paso 5.2 usando variable nombre
         #   al hacer esto estamos enviando información de la plantilla a la vista, la plantilla es el HTML
-        {"nombre_animal":nombre}
+        {
+            "nombre_animal":nombre,
+            "pais_origen":origen,
+            "fecha":dt,
+            "nombre":a.nombre_animal,
+            "tipo":a.tipo_animal,
+            "lenguajes":[
+                "Java","Python","Elixir","C","C++","Erlang","Ruby"
+            ]
+         }
     )
     #   paso 5
     enviar=plantilla.render(contexto)
