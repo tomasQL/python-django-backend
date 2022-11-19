@@ -28,4 +28,8 @@ urlpatterns = [
     path('mostrar_numero/<int:valor_numerico>', views.capturar_numero),
     path('operaciones/<int:numero1>/<int:numero2>', views.operar_numeros),
     path('operacion_flotante/<str:valor_float>', views.numeros_coma_flotante),
+    path('nueva_vista/', views.nueva_vista),
+    path('vista_hija/', views.vista_hija),
+    path('vista_hija2/', views.vista_hija2),
+    path('vista_padre/', views.vista_padre),
 ]

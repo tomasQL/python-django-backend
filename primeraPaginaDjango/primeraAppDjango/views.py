@@ -125,3 +125,38 @@ def numeros_coma_flotante(request,valor_float):
 #  y calcule e imprima la tabla de multiplicar
 #  del primer numero ingresado hasta el segundo numero ingresado
 #  
+
+
+
+#   16-11-2022 clase miercoles back-end
+def nueva_vista(request):
+    nombre="Wombat"
+    origen="animal es endémico de Australia"
+    dt=datetime.datetime.now()
+    a=Animal("Wombat con clase","Marsupial con clase")
+    contexto= {
+            "nombre_animal":nombre,
+            "pais_origen":origen,
+            "fecha":dt,
+            "nombre":a.nombre_animal,
+            "tipo":a.tipo_animal,
+            "lenguajes":[
+                "Java","Python","Elixir","C","C++","Erlang","Ruby"
+            ]
+        }
+    return render(request, "primertemplate.html", contexto)
+
+#   nueva vista padre
+def vista_padre(request):
+    
+    #  si la func vista no tiene elementos para enviar el tercer elemento de la func render va vacío
+    return render(request, "pagina-padre.html", )
+
+#   vista para la pagina hija
+def vista_hija(request):
+    
+    #  si la func vista no tiene elementos para enviar el tercer elemento de la func render va vacío
+    return render(request, "pagina-hija.html", )
+
+def vista_hija2(request):
+    return render(request, "pagina-hija2.html", )
