@@ -6,7 +6,7 @@ from django.template import Template, Context
 
 def index(request):
     
-    return render(request, "index.html",)
+    return render(request, "index.html", )
 
 def productos(request):
     
