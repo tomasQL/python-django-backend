@@ -4,6 +4,14 @@ from django.template import Template, Context
 # Create your views here.
 
 
-def inicio(request):
+def index(request):
     
     return render(request, "index.html",)
+
+def productos(request):
+    
+    return render(request, "productos.html", )
+
+def acercade(request):
+    
+    return render(request, "acercade.html", )
